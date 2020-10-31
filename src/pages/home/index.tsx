@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
+import { MainHeader } from '../../components/commons/mainHeader';
 
 export const Home: FC = () => (
-  <h1>This is a home Page</h1>
+  <>
+    <MainHeader />
+  </>
 );
