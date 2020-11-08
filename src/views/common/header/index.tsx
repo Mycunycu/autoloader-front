@@ -3,7 +3,7 @@ import { PrimarySearchAppBar } from './appBar';
 
 
 
-export const MainHeader: FC = () => {
+export const Header: FC = () => {
   return (
     <PrimarySearchAppBar />
   )

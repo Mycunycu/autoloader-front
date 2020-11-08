@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import { Home } from './pages/home';
-import { Auth } from './pages/auth';
+import { Home } from './views/components/home';
+import { Auth } from './views/components/auth';
 
 import './app.sass';
 

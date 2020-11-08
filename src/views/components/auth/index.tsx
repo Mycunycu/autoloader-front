@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import Button from '@material-ui/core/Button';
 
 export const Auth: FC = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState<string>('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
 
