@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, IconButton, Badge, MenuItem, Menu } from '@material-ui/core';
@@ -86,20 +87,20 @@ export const PrimarySearchAppBar: FC = () => {
 
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
-  };
+  }
+
+  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setMobileMoreAnchorEl(event.currentTarget);
+  }
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
-  };
+  }
 
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -112,8 +113,15 @@ export const PrimarySearchAppBar: FC = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Link to='/profile'>
+        <MenuItem onClick={handleMenuClose}>Профиль</MenuItem>
+      </Link>
+      <Link to='/login'>
+        <MenuItem onClick={handleMenuClose}>Войти</MenuItem>
+      </Link>
+      <Link to='/'>
+        <MenuItem onClick={handleMenuClose}>Выйти</MenuItem>
+      </Link>
     </Menu>
   );
 
@@ -201,5 +209,5 @@ export const PrimarySearchAppBar: FC = () => {
       {renderMobileMenu}
       {renderMenu}
     </div>
-  );
+  )
 }
