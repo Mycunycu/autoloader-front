@@ -1,10 +1,12 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 import { reducers } from './reducers/index.js';
 
 const sagaMiddleware = createSagaMiddleware();
 
 export const store = createStore(
   reducers,
-  compose(applyMiddleware(sagaMiddleware)),
+  composeWithDevTools(applyMiddleware(sagaMiddleware)),
 );
