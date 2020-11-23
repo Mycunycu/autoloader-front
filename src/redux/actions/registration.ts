@@ -1,8 +1,14 @@
-export const REGISTRATION_REQUEST = 'REGISTRATION_REQUEST';
-export const REGISTRATION_SUCCESS = 'REGISTRATION_SUCCESS';
-export const REGISTRATION_FAIL = 'REGISTRATION_FAIL';
+import { createAction } from 'typesafe-actions';
+import * as constants from './constants/registration';
 
-// To Do typing
-export const registrationRequest = payload => ({ type: REGISTRATION_REQUEST, payload });
-export const registrationSuccess = payload => ({ type: REGISTRATION_SUCCESS, payload });
-export const registrationFail = payload => ({ type: REGISTRATION_FAIL, payload });
+export type RegisterRequestType = {
+  name: string,
+  email: string,
+  password: string
+}
+
+type RegisterSuccessType = {}
+
+export const registrationRequest = createAction(constants.REGISTRATION_REQUEST)<RegisterRequestType>();
+export const registrationSuccess = (payload: RegisterSuccessType) => ({ type: constants.REGISTRATION_SUCCESS, payload });
+export const registrationFail = () => ({ type: constants.REGISTRATION_FAIL });

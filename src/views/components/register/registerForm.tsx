@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
-
 import { OutlinedInput, FormControl, InputLabel, InputAdornment, IconButton, Button } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { RegisterRequestType } from '../../../redux/actions/registration';
 
 import './register.sass';
 
@@ -13,7 +13,11 @@ interface IState {
   isShowPassword: boolean;
 }
 
-export const RegisterForm: FC = () => {
+type PropsType = {
+  registrationRequest: (payload: RegisterRequestType) => void
+}
+
+export const RegisterForm: FC<PropsType> = ({ registrationRequest }) => {
   const [values, setValues] = useState<IState>({
     name: '',
     email: '',
@@ -50,7 +54,13 @@ export const RegisterForm: FC = () => {
   }
 
   const onSubmitRegistration = () => {
-    
+    const payload: RegisterRequestType  = {
+      name: values.name,
+      email: values.email,
+      password: values.password
+    }
+
+    registrationRequest(payload);
   }
 
   return (

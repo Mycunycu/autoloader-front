@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Home } from './views/components/home';
 import { Auth } from './views/components/login';
 import { Profile } from './views/components/profile';
-import { RegisterPage } from './views/components/register';
+import RegisterPage from './views/components/register';
 
 import './app.sass';
 
