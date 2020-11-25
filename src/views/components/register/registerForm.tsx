@@ -53,7 +53,9 @@ export const RegisterForm: FC<PropsType> = ({ registrationRequest }) => {
     )
   }
 
-  const onSubmitRegistration = () => {
+  const onSubmitRegistration = (e: React.FormEvent) => {
+    e.preventDefault();
+    
     const payload: RegisterRequestType  = {
       name: values.name,
       email: values.email,
